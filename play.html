@@ -18,6 +18,7 @@
     <li><a href="index.html#work">Work</a></li>
     <li><a href="play.html" class="active">Play</a></li>
     <li><a href="index.html#about">About</a></li>
+    <li><a href="#" id="theme-toggle" style="font-weight: 700;">Dark Mode</a></li>
   </ul>
 </nav>
 
@@ -116,8 +117,8 @@
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
   const lenis = new Lenis({
-    duration: 1.4, // Quanto maior, mais lento e suave (tenta entre 1.2 e 1.5)
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de aceleração suave
+    duration: 1.4,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true
   });
 
@@ -135,6 +136,30 @@
     { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
   );
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    if (themeToggle) themeToggle.innerText = 'Light Mode';
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      body.classList.toggle('dark-theme');
+
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('portfolio-theme', 'dark');
+        themeToggle.innerText = 'Light Mode';
+      } else {
+        localStorage.setItem('portfolio-theme', 'light');
+        themeToggle.innerText = 'Dark Mode';
+      }
+    });
+  }
 </script>
 </body>
 </html>
