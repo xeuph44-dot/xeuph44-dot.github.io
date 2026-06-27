@@ -910,8 +910,8 @@ body {
   }
 
   #custom-cursor.hover-close {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     background: #EBE7E0;
     mix-blend-mode: normal;
   }
