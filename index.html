@@ -11,6 +11,14 @@
 </head>
 <body>
 
+<div id="preloader">
+  <div class="preloader-text">LENA <span>HAVRYLECHKO</span></div>
+</div>
+
+<div id="custom-cursor">
+  <span class="cursor-text">VIEW</span>
+</div>
+
 <!-- ===== NAV ===== -->
 <nav class="nav" id="site-nav">
   <a href="#" class="nav-logo">Lena Havrylechko</a>
@@ -23,7 +31,7 @@
   </ul>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="index">
   <div class="hero-eyebrow fi">
     <span class="eyebrow-dash"></span>
@@ -50,7 +58,7 @@
   </div>
 </section>
 
-<!-- ===== SELECTED WORK ===== -->
+<!-- SELECTED WORK -->
 <section class="work-section" id="work">
   <div class="section-header fi">
     <span class="section-label">Selected Work</span>
@@ -96,7 +104,7 @@
   </div>
 </section>
 
-<!-- ===== PLAYGROUND TEASER ===== -->
+<!-- PLAYGROUND TEASER -->
 <section class="play-section fi" id="play">
   <div>
     <div class="play-eyebrow">Also Explore →</div>
@@ -106,7 +114,7 @@
   <a href="play.html" class="play-cta">Explore the Playground →</a>
 </section>
 
-<!-- ===== SITEMAP ===== -->
+<!-- SITEMAP -->
 <section class="sitemap-section">
   <div class="section-header fi">
     <span class="section-label">Mapa do Site — Estrutura de Navegação</span>
@@ -156,7 +164,7 @@
   </div>
 </section>
 
-<!-- ===== PROJECT DETAIL SPEC ===== -->
+<!-- PROJECT DETAIL SPEC -->
 <section class="detail-section" id="project-detail">
   <div class="section-header fi">
     <span class="section-label">Anatomia — Página de Detalhe de Projeto</span>
@@ -195,9 +203,8 @@
     </div>
 
     <!-- Full-width image -->
-    <div class="ds-image-full">
-      <div class="ann">Zona 3 — Imagem Principal (ocupar toda a largura)</div>
-      <div class="ph-label">[ IMAGEM PRINCIPAL DO PROJETO ]</div>
+    <div class="ds-image-full" style="padding: 0; border: none;">
+      <img src="imagens/imagem1.webp" alt="Capa do projeto" class="imagem-real">
     </div>
 
     <!-- Body: concept + process -->
@@ -247,7 +254,7 @@
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer class="footer" id="about">
   <div class="footer-headline fi">
     SEE<br><span class="dim">YOU</span><br>SOON<span class="dim">.</span>
@@ -265,11 +272,21 @@
   </div>
 </footer>
 
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="Imagem Ampliada">
+
+  <div class="lb-footer">
+    <span class="lb-cat" id="lb-cat">Categoria</span>
+    <span class="lb-brand">LENA HAVRYLECHKO</span>
+    <span class="lb-year" id="lb-year">2024</span>
+  </div>
+</div>
+
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
   const lenis = new Lenis({
-    duration: 1.4, // Quanto maior, mais lento e suave (tenta entre 1.2 e 1.5)
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de aceleração suave
+    duration: 1.4,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true
   });
 
@@ -279,7 +296,6 @@
   }
   requestAnimationFrame(raf);
 
-  // Intersection observer for fade-ins
   const io = new IntersectionObserver(
     entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
@@ -288,15 +304,13 @@
   );
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
-  // Nav scroll state
   const nav = document.getElementById('site-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // ==========================================
+
   // LÓGICA DE NAVEGAÇÃO DOS PROJETOS
-  // ==========================================
 
   const projetosData = [
     {
@@ -341,11 +355,9 @@
     const navTitleClean = proj.title.replace(/<br>/g, ' ').toUpperCase();
     document.getElementById('nav-proj-title').innerHTML = 'WORK / ' + navTitleClean;
 
-    // Atualizar Cabeçalho
     document.querySelector('.ds-proj-num').innerHTML = proj.num;
     document.querySelector('.ds-proj-title').innerHTML = proj.title;
 
-    // Atualizar Metadados
     const metaValues = document.querySelectorAll('.ds-meta-val');
     metaValues[0].innerHTML = proj.category;
     metaValues[1].innerHTML = proj.course;
@@ -353,12 +365,10 @@
     metaValues[4].innerHTML = proj.team;
     metaValues[5].innerHTML = proj.tools;
 
-    // Atualizar Textos de Corpo
     const bodyTexts = document.querySelectorAll('.ds-body-text');
     bodyTexts[0].innerHTML = proj.concept;
     bodyTexts[1].innerHTML = proj.process;
 
-    // Atualizar o botão "Próximo Projeto" no final da página
     const nextIndex = (index + 1) % projetosData.length;
     const nextProj = projetosData[nextIndex];
 
@@ -379,32 +389,25 @@
   });
 
   const nextButton = document.querySelector('.ds-next');
-  nextButton.style.cursor = 'pointer';
   nextButton.addEventListener('click', () => {
     const nextIndex = (currentProjectIndex + 1) % projetosData.length;
     loadProject(nextIndex);
   });
 
-  // ==========================================
   // NAVEGAÇÃO DA BARRA SUPERIOR (ds-nav)
-  // ==========================================
 
-  // Botão "Prev" (Anterior)
   document.getElementById('nav-prev').addEventListener('click', (e) => {
     e.preventDefault();
-    // Se estiver no primeiro projeto (0), volta para o último. Senão, recua um.
     const prevIndex = (currentProjectIndex === 0) ? projetosData.length - 1 : currentProjectIndex - 1;
     loadProject(prevIndex);
   });
 
-  // Botão "Next" (Seguinte)
   document.getElementById('nav-next').addEventListener('click', (e) => {
     e.preventDefault();
     const nextIndex = (currentProjectIndex + 1) % projetosData.length;
     loadProject(nextIndex);
   });
 
-  // Botão "FORMA" (Voltar ao topo / Secção Work)
   document.getElementById('nav-back-top').addEventListener('click', () => {
     lenis.scrollTo('#work', { duration: 2.5 });
   });
@@ -413,36 +416,30 @@
 
   menuLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault(); // Impede o teletransporte brusco padrão do HTML
+      e.preventDefault();
 
-      const targetId = link.getAttribute('href'); // Descobre para onde ir (ex: '#about')
-
-      // Usa o motor do Lenis para deslizar até lá
+      const targetId = link.getAttribute('href');
       lenis.scrollTo(targetId, {
         duration: 2.5,
-        offset: -68 // Este offset compensa a altura da tua nav bar (para não tapar os títulos)
+        offset: -68
       });
     });
   });
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
-  // 1. Verifica se a pessoa já tinha escolhido o Modo Escuro antes
   const savedTheme = localStorage.getItem('portfolio-theme');
   if (savedTheme === 'dark') {
     body.classList.add('dark-theme');
     if (themeToggle) themeToggle.innerText = 'Light Mode';
   }
 
-  // 2. O que acontece quando clicamos no botão
   if (themeToggle) {
     themeToggle.addEventListener('click', (e) => {
       e.preventDefault();
 
-      // Adiciona ou remove a classe 'dark-theme' do <body>
       body.classList.toggle('dark-theme');
 
-      // Atualiza o texto do botão e guarda a preferência no navegador
       if (body.classList.contains('dark-theme')) {
         localStorage.setItem('portfolio-theme', 'dark');
         themeToggle.innerText = 'Light Mode';
@@ -451,6 +448,117 @@
         themeToggle.innerText = 'Dark Mode';
       }
     });
+
+    const preloader = document.getElementById('preloader');
+
+    if (!sessionStorage.getItem('jaViuLoader')) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          preloader.classList.add('loaded');
+          sessionStorage.setItem('jaViuLoader', 'true');
+        }, 1200);
+      });
+    } else {
+      preloader.style.transition = 'none';
+      preloader.classList.add('loaded');
+      preloader.style.display = 'none';
+    }
+
+    const cursor = document.getElementById('custom-cursor');
+
+    const cursorText = cursor.querySelector('.cursor-text');
+
+    if (window.matchMedia("(pointer: fine)").matches) {
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+      });
+
+      lenis.on('scroll', () => {
+        const elUnderMouse = document.elementFromPoint(mouseX, mouseY);
+
+        if (elUnderMouse && elUnderMouse.closest('.project-row, .ds-image-full, .ds-img-cell')) {
+          cursor.classList.add('hover-project');
+        } else {
+          cursor.classList.remove('hover-project');
+        }
+      });
+
+      const viewTriggers = document.querySelectorAll('.project-row, .ds-image-full, .ds-img-cell');
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lbCat = document.getElementById('lb-cat');
+      const lbYear = document.getElementById('lb-year');
+
+      let activeImgRect = null;
+
+      viewTriggers.forEach(item => {
+        item.addEventListener('mouseenter', () => { cursor.classList.add('hover-project'); });
+        item.addEventListener('mouseleave', () => { cursor.classList.remove('hover-project'); });
+
+        if (item.classList.contains('ds-image-full') || item.classList.contains('ds-img-cell')) {
+          item.addEventListener('click', () => {
+            const realImg = item.querySelector('img');
+            const imageSource = realImg ? realImg.src : 'imagens/imagem1.webp';
+
+            const currentProj = projetosData[currentProjectIndex];
+            lbCat.innerText = currentProj.category;
+            lbYear.innerText = currentProj.year;
+
+            activeImgRect = item.getBoundingClientRect();
+
+            lightboxImg.src = imageSource;
+            lightboxImg.style.transition = 'none';
+            lightboxImg.style.top = activeImgRect.top + 'px';
+            lightboxImg.style.left = activeImgRect.left + 'px';
+            lightboxImg.style.width = activeImgRect.width + 'px';
+            lightboxImg.style.height = activeImgRect.height + 'px';
+
+            lightbox.classList.add('active');
+            document.body.classList.add('lightbox-open');
+            cursor.classList.remove('hover-project');
+            cursor.classList.add('hover-close');
+            cursorText.innerText = 'CLOSE';
+
+            if(typeof lenis !== 'undefined') lenis.stop();
+
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                lightboxImg.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+
+                lightboxImg.style.top = '5vh';
+                lightboxImg.style.left = '5vw';
+                lightboxImg.style.width = '90vw';
+                lightboxImg.style.height = '80vh';
+              });
+            });
+          });
+        }
+      });
+
+      lightbox.addEventListener('click', () => {
+        if (activeImgRect) {
+          lightboxImg.style.top = activeImgRect.top + 'px';
+          lightboxImg.style.left = activeImgRect.left + 'px';
+          lightboxImg.style.width = activeImgRect.width + 'px';
+          lightboxImg.style.height = activeImgRect.height + 'px';
+        }
+
+        lightbox.classList.remove('active');
+        document.body.classList.remove('lightbox-open');
+        cursor.classList.remove('hover-close');
+        cursorText.innerText = 'VIEW';
+
+        setTimeout(() => {
+          if(typeof lenis !== 'undefined') lenis.start();
+        }, 600);
+      });
+    }
   }
 </script>
 </body>

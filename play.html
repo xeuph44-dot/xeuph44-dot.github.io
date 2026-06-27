@@ -93,7 +93,6 @@
         <span class="play-item-tag">Categoria | Ano</span>
       </div>
     </div>
-
   </div>
 </main>
 
@@ -113,6 +112,20 @@
     <span class="footer-copy">Lena Havrylechko · FBAUP · 2022 – 2026</span>
   </div>
 </footer>
+
+<div id="custom-cursor">
+  <span class="cursor-text">VIEW</span>
+</div>
+
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="Imagem Ampliada">
+
+  <div class="lb-footer">
+    <span class="lb-cat" id="lb-cat">Categoria</span>
+    <span class="lb-brand">LENA HAVRYLECHKO</span>
+    <span class="lb-year" id="lb-year">2024</span>
+  </div>
+</div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -159,6 +172,106 @@
         themeToggle.innerText = 'Dark Mode';
       }
     });
+
+    const cursor = document.getElementById('custom-cursor');
+    const cursorText = cursor ? cursor.querySelector('.cursor-text') : null;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lbCat = document.getElementById('lb-cat');
+    const lbYear = document.getElementById('lb-year');
+    let activeImgRect = null;
+
+    if (window.matchMedia("(pointer: fine)").matches && cursor) {
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+      });
+
+      lenis.on('scroll', () => {
+        const elUnderMouse = document.elementFromPoint(mouseX, mouseY);
+        if (elUnderMouse && elUnderMouse.closest('.play-card-item')) {
+          if (!document.body.classList.contains('lightbox-open')) {
+            cursor.classList.add('hover-project');
+          }
+        } else {
+          cursor.classList.remove('hover-project');
+        }
+      });
+
+      const playItems = document.querySelectorAll('.play-card-item');
+
+      playItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          if (!document.body.classList.contains('lightbox-open')) cursor.classList.add('hover-project');
+        });
+        item.addEventListener('mouseleave', () => {
+          if (!document.body.classList.contains('lightbox-open')) cursor.classList.remove('hover-project');
+        });
+
+        item.addEventListener('click', () => {
+          const imgWrapper = item.querySelector('.play-img-wrapper');
+          const realImg = item.querySelector('img');
+          const imageSource = realImg ? realImg.src : 'imagens/imagem1.webp';
+
+          const titleText = item.querySelector('.play-item-title').innerText;
+          const tagText = item.querySelector('.play-item-tag').innerText;
+
+          lbCat.innerText = titleText;
+          lbYear.innerText = tagText;
+
+          activeImgRect = imgWrapper.getBoundingClientRect();
+
+          lightboxImg.src = imageSource;
+          lightboxImg.style.transition = 'none';
+          lightboxImg.style.top = activeImgRect.top + 'px';
+          lightboxImg.style.left = activeImgRect.left + 'px';
+          lightboxImg.style.width = activeImgRect.width + 'px';
+          lightboxImg.style.height = activeImgRect.height + 'px';
+
+          lightbox.classList.add('active');
+          document.body.classList.add('lightbox-open');
+
+          cursor.classList.remove('hover-project');
+          cursor.classList.add('hover-close');
+          cursorText.innerText = 'CLOSE';
+
+          if(typeof lenis !== 'undefined') lenis.stop();
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              lightboxImg.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+              lightboxImg.style.top = '5vh';
+              lightboxImg.style.left = '5vw';
+              lightboxImg.style.width = '90vw';
+              lightboxImg.style.height = '80vh';
+            });
+          });
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        if (activeImgRect) {
+          lightboxImg.style.top = activeImgRect.top + 'px';
+          lightboxImg.style.left = activeImgRect.left + 'px';
+          lightboxImg.style.width = activeImgRect.width + 'px';
+          lightboxImg.style.height = activeImgRect.height + 'px';
+        }
+
+        lightbox.classList.remove('active');
+        document.body.classList.remove('lightbox-open');
+
+        cursor.classList.remove('hover-close');
+        cursorText.innerText = 'VIEW';
+
+        setTimeout(() => {
+          if(typeof lenis !== 'undefined') lenis.start();
+        }, 600);
+      });
+    }
   }
 </script>
 </body>
