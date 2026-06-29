@@ -504,7 +504,7 @@
         if (item.classList.contains('ds-image-full') || item.classList.contains('ds-img-cell')) {
           item.addEventListener('click', () => {
             const realImg = item.querySelector('img');
-            const imageSource = realImg ? realImg.src : 'imagens/imagem1.webp';
+            const imageSource = realImg ? realImg.src : '#';
 
             const currentProj = projetosData[currentProjectIndex];
             lbCat.innerText = currentProj.category;
