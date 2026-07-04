@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lena Havrylechko — Portfolio Digital</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lena Havrylechko — Creative Portfolio">
+  <meta property="og:description" content="Estudante na FBAUP (2022-2026).">
+  <meta property="og:image" content="https://xeuph44-dot.github.io/imagens/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="imagens/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -19,7 +24,7 @@
   <span class="cursor-text">VIEW</span>
 </div>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav class="nav" id="site-nav">
   <a href="#" class="nav-logo">Lena Havrylechko</a>
   <ul class="nav-links">
@@ -45,15 +50,52 @@
   </h1>
 
   <div class="hero-lower fi">
-    <p class="hero-desc">
-      Uma frase impactante que explique brevemente o meu percurso.
-    </p>
-    <div class="hero-skills">
-      <div class="skill-item">O meu ponto forte 1</div>
-      <div class="skill-item">O meu ponto forte 2</div>
-      <div class="skill-item">O meu ponto forte 3</div>
-      <div class="skill-item">O meu ponto forte 4</div>
-      <div class="skill-item">O meu ponto forte 5</div>
+
+    <div class="hero-slideshow-container">
+      <div class="hero-slideshow">
+        <img src="imagens/imagem1.webp" class="slide active" alt="Trabalho 1">
+        <img src="imagens/imagem2.webp" class="slide" alt="Trabalho 2">
+        <img src="imagens/imagem3.webp" class="slide" alt="Trabalho 3">
+      </div>
+
+      <div class="slide-captions">
+        <div class="slide-cap active">
+          <span class="sc-cat">Tema</span>
+          <span class="sc-brand">LENA HAVRYLECHKO</span>
+          <span class="sc-year">2024</span>
+        </div>
+        <div class="slide-cap">
+          <span class="sc-cat">Tema</span>
+          <span class="sc-brand">LENA HAVRYLECHKO</span>
+          <span class="sc-year">2025</span>
+        </div>
+        <div class="slide-cap">
+          <span class="sc-cat">Tema</span>
+          <span class="sc-brand">LENA HAVRYLECHKO</span>
+          <span class="sc-year">2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right-col">
+      <div class="hero-text-zone">
+        <p class="hero-desc">
+          Uma frase impactante e isso que explique bué brevemente o teu percurso ou algo do género.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="play-cta" style="background: var(--ink); color: var(--bg); border-color: var(--ink);">Ver Portfólio</a>
+          <a href="curriculo_lena.pdf" target="_blank" class="play-cta">Download CV</a>
+        </div>
+      </div>
+
+      <div class="hero-skills">
+        <span class="skills-title">As minhas especialidades</span>
+        <div class="skill-item">O teu ponto forte 1</div>
+        <div class="skill-item">O teu ponto forte 2</div>
+        <div class="skill-item">O teu ponto forte 3</div>
+        <div class="skill-item">O teu ponto forte 4</div>
+        <div class="skill-item">O teu ponto forte 5</div>
+      </div>
     </div>
   </div>
 </section>
@@ -104,73 +146,13 @@
   </div>
 </section>
 
-<!-- PLAYGROUND TEASER -->
-<section class="play-section fi" id="play">
-  <div>
-    <div class="play-eyebrow">Also Explore →</div>
-    <div class="play-title">PLAY<br>GROUND</div>
-    <p class="play-desc">Works-in-progress, almost-made-its, weekend experiments, and all the beautiful failures in between.</p>
-  </div>
-  <a href="play.html" class="play-cta">Explore the Playground →</a>
-</section>
-
-<!-- SITEMAP -->
-<section class="sitemap-section">
-  <div class="section-header fi">
-    <span class="section-label">Mapa do Site — Estrutura de Navegação</span>
-  </div>
-
-  <div class="sitemap-grid fi">
-    <div class="sitemap-col">
-      <div class="sitemap-page">01 — Index</div>
-      <div class="sitemap-item"><b>Welcome</b>Introdução</div>
-      <div class="sitemap-item"><b>Focus Statement</b>Especialidades</div>
-      <div class="sitemap-item"><b>Selected Work</b>Lista sequencial dos meus projetos com número, categoria, nome, cadeira e ano</div>
-      <div class="sitemap-item"><b>Playground Teaser</b>Introdução da página de works-in-progress</div>
-    </div>
-
-    <div class="sitemap-col">
-      <div class="sitemap-page">02 — Work</div>
-      <div class="sitemap-item"><b>Work Overview</b>Vista geral com uma lista ou grelha de projetos</div>
-      <div class="sitemap-item"><b>Project Detail (×5)</b>Case study completo por projeto</div>
-      <div class="sitemap-item"><b>→ Conceito</b>Brief, intenção criativa, problema</div>
-      <div class="sitemap-item"><b>→ Processo</b>Rascunhos, iterações, pesquisa ou fontes de ideias</div>
-      <div class="sitemap-item"><b>→ Finais</b>Imagens do projeto em si</div>
-      <div class="sitemap-item"><b>→ Vídeo</b>Motion, making-of, algum projeto em vídeo, etc...</div>
-    </div>
-
-    <div class="sitemap-col">
-      <div class="sitemap-page">03 — Play</div>
-      <div class="sitemap-item"><b>Intro Copy</b>Frase explicativa da secção</div>
-      <div class="sitemap-item"><b>WIP / Testes</b>Projetos em progresso, explorações soltas</div>
-      <div class="sitemap-item"><b>Almost Made It</b>Projetos quase finais — semi-apresentáveis</div>
-      <div class="sitemap-item"><b>Experiments</b>Trabalhos pessoais fora do curriculum</div>
-    </div>
-
-    <div class="sitemap-col">
-      <div class="sitemap-page">04 — About</div>
-      <div class="sitemap-item"><b>My Story</b>Percurso e contexto ao longo dos anos</div>
-      <div class="sitemap-item"><b>Method</b>Processo de pesquisa e estratégia criativa</div>
-      <div class="sitemap-item"><b>Values</b>O que me guia enquanto artista</div>
-    </div>
-
-    <div class="sitemap-col">
-      <div class="sitemap-page">05 — Contact</div>
-      <div class="sitemap-item"><b>See You / Despedida</b>Headline de saída</div>
-      <div class="sitemap-item"><b>Email grande</b>email em tamanho de destaque</div>
-      <div class="sitemap-item"><b>Redes Sociais</b>LinkedIn · Instagram  alguma outra rede social</div>
-      <div class="sitemap-item"><b>Créditos</b>Ano + escola + nome</div>
-    </div>
-  </div>
-</section>
-
 <!-- PROJECT DETAIL SPEC -->
 <section class="detail-section" id="project-detail">
   <div class="section-header fi">
     <span class="section-label">Anatomia — Página de Detalhe de Projeto</span>
   </div>
   <p style="font-size:0.9rem;color:var(--ink-mid);max-width:580px;line-height:1.75;margin-top:6px;margin-bottom:36px">
-    Template base para cada projeto.
+    Template base para cada projeto. Eu consigo alterar consoante cada projeto caso seja necessário.
   </p>
 
   <div class="detail-spec fi">
@@ -196,15 +178,15 @@
         <div class="ds-meta-row"><span class="ds-meta-label">Categoria</span><span class="ds-meta-val">Tema</span></div>
         <div class="ds-meta-row"><span class="ds-meta-label">Cadeira</span><span class="ds-meta-val">Cadeira</span></div>
         <div class="ds-meta-row"><span class="ds-meta-label">Ano</span><span class="ds-meta-val">Ano</span></div>
-        <div class="ds-meta-row"><span class="ds-meta-label">Docente</span><span class="ds-meta-val">Prof.</span></div>
+        <div class="ds-meta-row"><span class="ds-meta-label">Docente</span><span class="ds-meta-val">Prof. [Nome]</span></div>
         <div class="ds-meta-row"><span class="ds-meta-label">Equipa</span><span class="ds-meta-val">Lena Havrylechko</span></div>
-        <div class="ds-meta-row" style="border-bottom:none"><span class="ds-meta-label">Ferramentas</span><span class="ds-meta-val">Ferramentas que usei</span></div>
+        <div class="ds-meta-row" style="border-bottom:none"><span class="ds-meta-label">Ferramentas</span><span class="ds-meta-val">Ferramentas que usaste</span></div>
       </div>
     </div>
 
     <!-- Full-width image -->
     <div class="ds-image-full" style="padding: 0; border: none;">
-      <img src="#" alt="Capa do projeto" class="imagem-real">
+      <img src="imagens/imagem1.webp" alt="Capa do projeto" class="imagem-real">
     </div>
 
     <!-- Body: concept + process -->
@@ -212,12 +194,12 @@
       <div>
         <div class="ann">Zona 4 — O Conceito</div>
         <div class="ds-body-label" style="margin-top:8px">Conceito &amp; Brief</div>
-        <div class="ds-body-text"> . </div>
+        <div class="ds-body-text"> Ya </div>
       </div>
       <div>
         <div class="ann">Zona 5 — Processo</div>
         <div class="ds-body-label" style="margin-top:8px">Investigação &amp; Processo</div>
-        <div class="ds-body-text"> . </div>
+        <div class="ds-body-text"> Ya </div>
       </div>
     </div>
 
@@ -254,14 +236,112 @@
   </div>
 </section>
 
+<!-- PLAYGROUND TEASER -->
+<section class="play-section fi" id="play">
+  <div>
+    <div class="play-eyebrow">Also Explore →</div>
+    <div class="play-title">PLAY<br>GROUND</div>
+    <p class="play-desc">Works-in-progress, almost-made-its, weekend experiments, and all the beautiful failures in between.</p>
+  </div>
+  <a href="play.html" class="play-cta">Explore the Playground →</a>
+</section>
+
+<!-- SITEMAP -->
+<section class="sitemap-section">
+  <div class="section-header fi">
+    <span class="section-label">Mapa do Site — Estrutura de Navegação</span>
+  </div>
+
+  <div class="sitemap-grid fi">
+    <div class="sitemap-col">
+      <div class="sitemap-page">01 — Index</div>
+      <div class="sitemap-item"><b>Welcome</b>Opa eu depois arranjo o que escrever nestas partes mas tou sem ideias</div>
+      <div class="sitemap-item"><b>Focus Statement</b>Especialidades e isso</div>
+      <div class="sitemap-item"><b>Selected Work</b>Lista sequencial dos teus projetos com número, categoria, nome, cadeira e ano</div>
+      <div class="sitemap-item"><b>Playground Teaser</b>Também não sei o que meter aqui mas oi lena és muito fixe</div>
+    </div>
+
+    <div class="sitemap-col">
+      <div class="sitemap-page">02 — Work</div>
+      <div class="sitemap-item"><b>Work Overview</b>Vista geral com uma lista ou grelha de projetos</div>
+      <div class="sitemap-item"><b>Project Detail (×5)</b>Case study completo por projeto se quiseres, se não removo essa parte</div>
+      <div class="sitemap-item"><b>→ Conceito</b>Brief, intenção criativa, problema</div>
+      <div class="sitemap-item"><b>→ Processo</b>Rascunhos, iterações, pesquisa ou fontes de ideias</div>
+      <div class="sitemap-item"><b>→ Finais</b>Imagens do projeto em si</div>
+      <div class="sitemap-item"><b>→ Vídeo</b>Motion, making-of, algum projeto em vídeo que tenhas, etc...</div>
+    </div>
+
+    <div class="sitemap-col">
+      <div class="sitemap-page">03 — Play</div>
+      <div class="sitemap-item"><b>Intro Copy</b>Uma frase chunga que nem tudo o que começa termina</div>
+      <div class="sitemap-item"><b>WIP / Testes</b>Projetos em progresso, explorações soltas</div>
+      <div class="sitemap-item"><b>Almost Made It</b>Projetos quase finais — semi-apresentáveis</div>
+      <div class="sitemap-item"><b>Experiments</b>Trabalhos pessoais fora do curriculum</div>
+    </div>
+
+    <div class="sitemap-col">
+      <div class="sitemap-page">04 — About</div>
+      <div class="sitemap-item"><b>My Story</b>Percurso e contexto ao longo dos anos</div>
+      <div class="sitemap-item"><b>Method</b>Processo de pesquisa e estratégia criativa</div>
+      <div class="sitemap-item"><b>Values</b>O que me guia enquanto artista</div>
+    </div>
+
+    <div class="sitemap-col">
+      <div class="sitemap-page">05 — Contact</div>
+      <div class="sitemap-item"><b>See You / Despedida</b>Headline de saída</div>
+      <div class="sitemap-item"><b>Email grande</b>oteuemail@algo.com em tamanho de destaque</div>
+      <div class="sitemap-item"><b>Redes Sociais</b>LinkedIn · Instagram  alguma outra rede social</div>
+      <div class="sitemap-item"><b>Créditos</b>Ano + escola + nome</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+
+    <div class="about-left fi">
+      <h2 class="about-title">NICE TO<br>MEET<br><span class="soft">YOU.</span></h2>
+      <div class="about-img-wrapper">
+        <img src="img/lena-perfil.jpg" alt="Lena Havrylechko" class="imagem-real" onerror="this.src='https://via.placeholder.com/600x800/2E2B29/EBE7E0?text=FOTO+DA+LENA'">
+      </div>
+    </div>
+
+    <div class="about-right fi">
+
+      <div class="about-block">
+        <h3 class="about-label">01 — My Story</h3>
+        <p class="about-text">
+          Coloca aqui a tua bio. Fala sobre seres estudante na FBAUP, a tua paixão. Mostra a tua personalidade basicamente.
+        </p>
+      </div>
+
+      <div class="about-block">
+        <h3 class="about-label">02 — Method</h3>
+        <p class="about-text">
+          Como costumas trabalhar?
+        </p>
+      </div>
+
+      <div class="about-block">
+        <h3 class="about-label">03 — Values</h3>
+        <p class="about-text">
+          O que te move no design?
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
-<footer class="footer" id="about">
+<footer class="footer">
   <div class="footer-headline fi">
     SEE<br><span class="dim">YOU</span><br>SOON<span class="dim">.</span>
   </div>
 
   <div class="footer-cta-label">Fala comigo</div>
-  <a href="mailto:hi@forma.pt" class="footer-email">lenahavrylechko@gmail.com</a>
+  <a href="mailto:hi@forma.pt" class="footer-email">oteuemail@algo.com</a>
 
   <div class="footer-bottom">
     <div class="footer-socials">
@@ -319,10 +399,18 @@
       category: "Tema",
       course: "Cadeira",
       year: "Ano",
+      prof: "Professor",
       team: "Lena Havrylechko",
-      tools: "Ferramentas que usaste",
-      concept: "Conceito",
-      process: "Processo"
+      tools: "Ferramentas",
+      concept: "Conceito do projeto 1 aqui...",
+      process: "Processo do projeto 1 aqui...",
+      mainImage: "img/projeto1-capa.jpg",
+      gallery: [
+        "img/projeto1-detalhe1.jpg",
+        "img/projeto1-detalhe2.jpg",
+        "img/projeto1-detalhe3.jpg",
+        "img/projeto1-detalhe4.jpg"
+      ]
     },
     {
       num: "02",
@@ -330,10 +418,18 @@
       category: "Tema",
       course: "Cadeira",
       year: "Ano",
+      prof: "Professor",
       team: "Lena Havrylechko",
-      tools: "Ferramentas que usaste",
-      concept: "Conceito",
-      process: "Processo"
+      tools: "Ferramentas",
+      concept: "Conceito do projeto 2 aqui...",
+      process: "Processo do projeto 2 aqui...",
+      mainImage: "img/projeto2-capa.jpg",
+      gallery: [
+        "img/projeto2-detalhe1.jpg",
+        "img/projeto2-detalhe2.jpg",
+        "img/projeto2-detalhe3.jpg",
+        "img/projeto2-detalhe4.jpg"
+      ]
     },
     {
       num: "03",
@@ -341,15 +437,23 @@
       category: "Tema",
       course: "Cadeira",
       year: "Ano",
+      prof: "Professor",
       team: "Lena Havrylechko",
-      tools: "Ferramentas que usaste",
-      concept: "Conceito",
-      process: "Processo"
+      tools: "Ferramentas",
+      concept: "Conceito do projeto 3 aqui...",
+      process: "Processo do projeto 3 aqui...",
+      mainImage: "img/projeto3-capa.jpg",
+      gallery: [
+        "img/projeto3-detalhe1.jpg",
+        "img/projeto3-detalhe2.jpg",
+        "img/projeto3-detalhe3.jpg",
+        "img/projeto3-detalhe4.jpg"
+      ]
     }
   ];
   let currentProjectIndex = 0;
 
-  function loadProject(index) {
+  function loadProject(index, fazScroll = true) {
     currentProjectIndex = index;
     const proj = projetosData[index];
     const navTitleClean = proj.title.replace(/<br>/g, ' ').toUpperCase();
@@ -362,12 +466,29 @@
     metaValues[0].innerHTML = proj.category;
     metaValues[1].innerHTML = proj.course;
     metaValues[2].innerHTML = proj.year;
+    metaValues[3].innerHTML = proj.prof;
     metaValues[4].innerHTML = proj.team;
     metaValues[5].innerHTML = proj.tools;
 
     const bodyTexts = document.querySelectorAll('.ds-body-text');
     bodyTexts[0].innerHTML = proj.concept;
     bodyTexts[1].innerHTML = proj.process;
+
+    const mainImgEl = document.querySelector('.ds-image-full img');
+    if (mainImgEl && proj.mainImage) {
+      mainImgEl.src = proj.mainImage;
+    }
+
+    const galleryImgEls = document.querySelectorAll('.ds-img-cell img');
+    galleryImgEls.forEach((imgEl, i) => {
+      if (proj.gallery && proj.gallery[i]) {
+        imgEl.src = proj.gallery[i];
+        imgEl.parentElement.style.display = 'flex';
+      } else {
+        imgEl.parentElement.style.display = 'none';
+      }
+    });
+
 
     const nextIndex = (index + 1) % projetosData.length;
     const nextProj = projetosData[nextIndex];
@@ -376,23 +497,28 @@
     document.querySelector('.ds-next-title').innerHTML = nextTitleClean + ' ↗';
     document.querySelector('.ds-next div div').innerHTML = nextProj.num + ' — ' + nextProj.category;
 
-
-    lenis.scrollTo('#project-detail', { duration: 1.5 });
+    if (fazScroll) {
+      lenis.scrollTo('#project-detail', { duration: 1.5 });
+    }
   }
 
   const projectRows = document.querySelectorAll('.project-row');
   projectRows.forEach((row, index) => {
     row.addEventListener('click', (e) => {
       e.preventDefault();
-      loadProject(index);
+      loadProject(index, true);
     });
   });
+
+
 
   const nextButton = document.querySelector('.ds-next');
   nextButton.addEventListener('click', () => {
     const nextIndex = (currentProjectIndex + 1) % projetosData.length;
-    loadProject(nextIndex);
+    loadProject(nextIndex, true);
   });
+
+  loadProject(0, false);
 
   // NAVEGAÇÃO DA BARRA SUPERIOR (ds-nav)
 
@@ -504,7 +630,7 @@
         if (item.classList.contains('ds-image-full') || item.classList.contains('ds-img-cell')) {
           item.addEventListener('click', () => {
             const realImg = item.querySelector('img');
-            const imageSource = realImg ? realImg.src : '#';
+            const imageSource = realImg ? realImg.src : 'imagens/imagem1.webp';
 
             const currentProj = projetosData[currentProjectIndex];
             lbCat.innerText = currentProj.category;
@@ -559,6 +685,21 @@
         }, 600);
       });
     }
+  }
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  const captions = document.querySelectorAll('.slide-captions .slide-cap');
+  let currentSlide = 0;
+
+  if (slides.length > 0) {
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      if(captions[currentSlide]) captions[currentSlide].classList.remove('active');
+
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.add('active');
+      if(captions[currentSlide]) captions[currentSlide].classList.add('active');
+    }, 3500);
   }
 </script>
 </body>
