@@ -83,16 +83,16 @@
           Uma frase impactante e isso que explique bué brevemente o teu percurso ou algo do género.
         </p>
         <div class="hero-actions">
-          <a href="#work" class="play-cta" style="background: var(--ink); color: var(--bg); border-color: var(--ink);">Ver Portfólio</a>
+          <a href="portfolio_lena.pdf" target="_blank" class="play-cta">See Portfolio</a>
           <a href="curriculo_lena.pdf" target="_blank" class="play-cta">Download CV</a>
         </div>
       </div>
 
       <div class="hero-skills">
-        <span class="skills-title">As minhas especialidades</span>
-        <div class="skill-item">O teu ponto forte 1</div>
-        <div class="skill-item">O teu ponto forte 2</div>
-        <div class="skill-item">O teu ponto forte 3</div>
+        <span class="skills-title">My main skills</span>
+        <div class="skill-item">Photography</div>
+        <div class="skill-item">Hand-drawn tile painting</div>
+        <div class="skill-item"></div>
         <div class="skill-item">O teu ponto forte 4</div>
         <div class="skill-item">O teu ponto forte 5</div>
       </div>
@@ -112,8 +112,8 @@
       <span class="proj-num">01</span>
       <span class="proj-dot"></span>
       <div class="proj-main">
-        <span class="proj-cat">Tema</span>
-        <span class="proj-title">Projeto 1</span>
+        <span class="proj-cat">Documentary on ukranian lives</span>
+        <span class="proj-title">Stories that stayed</span>
       </div>
       <span class="proj-course">Cadeira</span>
       <span class="proj-year">Ano</span>
@@ -313,25 +313,24 @@
         <h3 class="about-label">01 — My Story</h3>
         <p class="about-text">
           My name is Helena Zaruba, and I am a fourth-year student of Multimedia Fine Arts at the Faculty of Fine Arts of the University of Porto.
-My artistic practice is primarily focused on photography and video. I am interested in documenting real experiences, personal stories, and contemporary social issues that shape people’s lives. Through my work, I explore themes such as war, memory, identity, friendship, migration, and social change.
-Several of my video projects focus on the consequences of war and its impact on everyday life. Through documentary filmmaking, I seek to give space to real voices and experiences, including stories of people close to me whose lives have changed significantly in recent years.
-In photography, I am particularly interested in subjects connected to my own life and environment. One of my photographic series documents the people I worked with while employed in a restaurant, focusing on everyday relationships, work routines, and human connections.
+Several of my video projects focus on the consequences of war and its impact on everyday life.
+In photography, I am particularly interested in subjects connected to my own life and environment. On one of my photographic series documents the people I worked with while employed in a restaurant, focusing on everyday relationships, work routines, and human connections.
 Alongside photography and video, I also practice traditional tile painting outside the academic environment. I create hand-painted ceramic tiles using cobalt blue pigments and historical decorative patterns inspired by traditional ceramic techniques.
-Across different media, I am interested in connecting personal experiences with broader social realities and creating work that is both personal and socially engaged.
         </p>
       </div>
 
       <div class="about-block">
         <h3 class="about-label">02 — Method</h3>
         <p class="about-text">
-          Como costumas trabalhar?
+          My artistic practice is primarily focused on photography and video. I am interested in documenting real experiences, personal stories, and contemporary social issues that shape people’s lives. Through my work, I explore themes such as war, memory, identity, friendship, migration, and social change.
         </p>
       </div>
 
       <div class="about-block">
         <h3 class="about-label">03 — Values</h3>
         <p class="about-text">
-          O que te move no design?
+          Through documentary filmmaking, I seek to give space to real voices and experiences, including stories of people close to me whose lives have changed significantly in recent years.
+          Across different media, I am interested in connecting personal experiences with broader social realities and creating work that is both personal and socially engaged.
         </p>
       </div>
 
@@ -416,6 +415,7 @@ Across different media, I am interested in connecting personal experiences with 
         "img/projeto1-detalhe3.jpg",
         "img/projeto1-detalhe4.jpg"
       ]
+      video: "https://www.youtube.com/embed/1gpRumha0E8?si=e0bRbY8hKw0Y1LJc"
     },
     {
       num: "02",
@@ -435,6 +435,7 @@ Across different media, I am interested in connecting personal experiences with 
         "img/projeto2-detalhe3.jpg",
         "img/projeto2-detalhe4.jpg"
       ]
+      video: "https://www.youtube.com/embed/O_TEU_LINK_AQUI"
     },
     {
       num: "03",
@@ -454,6 +455,7 @@ Across different media, I am interested in connecting personal experiences with 
         "img/projeto3-detalhe3.jpg",
         "img/projeto3-detalhe4.jpg"
       ]
+      video: "https://www.youtube.com/embed/O_TEU_LINK_AQUI"
     }
   ];
   let currentProjectIndex = 0;
@@ -492,6 +494,25 @@ Across different media, I am interested in connecting personal experiences with 
       } else {
         imgEl.parentElement.style.display = 'none';
       }
+
+      const videoContainer = document.querySelector('.ds-video-main');
+    
+    if (videoContainer) {
+      if (proj.video && proj.video !== "") {
+        videoContainer.innerHTML = `
+          <iframe width="100%" height="100%" src="${proj.video}" 
+                  title="YouTube video player" frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen 
+                  style="width: 100%; height: 100%; aspect-ratio: 16/9;">
+          </iframe>
+        `;
+        videoContainer.style.display = 'block'; 
+      } else {
+        videoContainer.innerHTML = "";
+        videoContainer.style.display = 'none';
+      }
+    }
     });
 
 
