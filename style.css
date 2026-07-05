@@ -18,8 +18,8 @@
 }
 
 ::selection {
-  background: var(--ink); /* O fundo fica com a cor do texto */
-  color: var(--bg);       /* O texto fica com a cor do fundo */
+  background: var(--ink);
+  color: var(--bg);
 }
 ::-moz-selection {
   background: var(--ink);
@@ -620,7 +620,7 @@ body {
 
 .ds-image-full {
   width: 100%;
-  height: 360px;
+  height: 620px;
   background: var(--bg);
   display: flex;
   align-items: center;
@@ -663,15 +663,16 @@ body {
   justify-content: center;
 }
 
-.ds-video-zone {
-  padding: 44px 48px;
-  background: var(--bg);
-  border-top: 1px solid var(--line);
+.ds-video-main {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--line);
+  overflow: hidden;
 }
 .ds-video-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
 .ds-video-main {
   background: var(--bg-dark);
-  height: 260px;
+  height: 720px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1168,4 +1169,79 @@ body {
   .about-section { padding: 80px 24px; }
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .about-img-wrapper { max-width: 100%; }
+}
+
+/* EXHIBITIONS SECTION */
+.exhibitions-section {
+  padding: 120px 52px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.exhibitions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.exh-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.exh-img-wrapper {
+  width: 80%;
+  aspect-ratio: 1 / 1.414;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.exh-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.exh-item:hover .exh-img-wrapper img {
+  transform: scale(1.03);
+}
+
+.exh-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.exh-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.exh-year {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-faint);
+}
+
+.exh-desc {
+  grid-column: 1 / -1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-mid);
+}
+
+@media (max-width: 900px) {
+  .exhibitions-section { padding: 80px 24px; }
+  .exhibitions-grid { grid-template-columns: 1fr; gap: 64px; }
 }
